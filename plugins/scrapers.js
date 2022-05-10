@@ -382,7 +382,6 @@ skl.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, 
 
         var info = await arama.rawContent();
         await message.client.sendMessage(message.jid, info, MessageType.text);
-        await reply.delete();
     }));
 
     skl.addCommand({pattern: 'img ?(.*)', fromMe: sourav, desc: Lang.IMG_DESC}, (async (message, match) => { 
