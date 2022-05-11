@@ -238,9 +238,9 @@ skl.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, 
             quality: 'highestaudio',
         });
     
-        got.stream(arama[0].image).pipe(fs.createWriteStream(title + '.png'));
+        got.stream(arama[0].image).pipe(fs.createWriteStream(title + '.jpg'));
         ffmpeg(stream)
-            .audioBitrate(320)
+            .audioBitrate(128)
             .save('./' + title + '.mp3')
             .on('end', async () => {
                 const writer = new ID3Writer(fs.readFileSync('./' + title + '.mp3'));
@@ -248,7 +248,7 @@ skl.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, 
                     .setFrame('TPE1', [arama[0].author.name])
                     .setFrame('APIC', {
                         type: 3,
-                        data: fs.readFileSync(title + '.png'),
+                        data: fs.readFileSync(title + '.jpg'),
                         description: arama[0].description
                     });
                 writer.addTag();
