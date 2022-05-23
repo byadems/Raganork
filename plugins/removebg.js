@@ -52,8 +52,7 @@ if (Config.WORKTYPE == 'private') {
 		    fs.createWriteStream('rbg.png')
         );
     
-        await message.client.sendMessage(message.jid,fs.readFileSync('rbg.png'), MessageType.document, {filename: 'WhatsAsena.png', mimetype: Mimetype.png});
-        await load.delete();
+        await message.client.sendMessage(message.jid,fs.readFileSync('rbg.png'), MessageType.image, {mimetype: Mimetype.png});
     }));
 }
 else if (Config.WORKTYPE == 'public') {
@@ -88,8 +87,7 @@ else if (Config.WORKTYPE == 'public') {
 		    fs.createWriteStream('rbg.png')
         );
     
-        await message.client.sendMessage(message.jid,fs.readFileSync('rbg.png'), MessageType.document, {filename: 'BGremoved.png', mimetype: Mimetype.png});
-        await load.delete();
+        await message.client.sendMessage(message.jid,fs.readFileSync('rbg.png'), MessageType.image, {mimetype: Mimetype.png});
     }));
     
 }
